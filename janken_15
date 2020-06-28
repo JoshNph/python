@@ -1,0 +1,159 @@
+import random
+
+c = ()
+
+#test
+player_names = ['batas 150', 'kaloy 500', 'kitteh 95']
+#test end
+
+#player = open('rating.txt', 'r', encoding='utf-8')
+
+user = input("Enter your name:")
+test_user = ""
+matches = 0
+score = 0
+index = 0
+
+for name in player_names:
+    test_user = name.split()
+    if user == test_user[0]:
+        print("Hello, " + user)
+        #print("Your rating: " + test_user[1])
+        matches += 1
+        score = int(test_user[1])
+        index = player_names.index(name)
+        pass
+
+if matches == 0:
+    print("Hello, " + user)
+    #print("Your rating: 0")
+    player_names.append(user + " 0")
+    index = len(player_names) - 1
+
+#print(player_names)
+#print(test_user)
+#//print(index)
+
+user_janken_options = input()
+if user_janken_options == "" or user_janken_options == " ":
+    janken_options = ["rock" , "paper", "scissors"]
+
+    print("Okay, let's start")
+
+    while True:
+        a = input()
+        a = a.lower()
+        b = random.randint(0, (len(janken_options) - 1))
+        janken_ai = janken_options[b]
+        if a == "!exit":
+            print("Bye!")
+            player_names[index] = user + " "  + str(score)
+            print(player_names)
+            break
+        if a == "!rating":
+           print(score)
+        elif a not in janken_options and a != "!rating":
+            print("Invalid input")
+        elif a == janken_ai:
+            print("There is a draw (" + janken_ai +")")
+            score += 50
+        elif a == "rock" and janken_ai == "scissors":
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "paper" and janken_ai == "rock":
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "scissors" and janken_ai == "paper":
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        else:
+            print("Sorry, but computer chose " + janken_ai)
+    print("rating: " + str(score))
+
+else:
+    janken_options = user_janken_options.split(',')
+    print("Okay, let's start")
+
+    #replace janken_options with user input separated with comma
+    snake_l = ["rock" , "gun", "lightning", "devil", "dragon", "scissors", "fire"]
+    scissors_l = ["rock" , "gun", "lightning", "devil", "dragon", "water", "fire"]
+    fire_l = ["rock" , "gun", "lightning", "devil", "dragon", "water", "air"]
+    rock_l = ["gun", "lightning", "devil", "dragon", "water", "air", "paper"]
+    gun_l = ["lightning", "devil", "dragon", "water", "air", "paper", "sponge"]
+    lightning_l = ["devil", "dragon", "dragon", "water", "air", "paper", "sponge", "wolf"]
+    devil_l = ["dragon", "water", "air", "paper", "sponge", "wolf", "tree"]
+    dragon_l = ["water", "air", "paper", "sponge", "wolf", "tree", "human"]
+    water_l = ["air", "paper", "sponge", "wolf", "tree", "human", "snake"]
+    air_l = ["paper", "sponge", "wolf", "tree", "human", "snake", "scissors"]
+    paper_l = ["sponge", "wolf", "tree", "human", "snake", "scissors", "fire"]
+    sponge_l = ["wolf", "tree", "human", "snake", "scissors", "fire", "rock"]
+    wolf_l = ["tree", "human", "snake", "scissors", "fire", "rock", "gun"]
+    tree_l = ["human", "snake", "scissors", "fire", "rock", "gun", "lightning"]
+    human_l = ["snake", "scissors", "fire", "rock", "gun", "lightning", "devil"]
+
+
+    while True:
+        a = input()
+        a = a.lower()
+        b = random.randint(0, (len(janken_options) - 1))
+        janken_ai = janken_options[b]
+        if a == "!exit":
+            print("Bye!")
+            player_names[index] = user + " "  + str(score)
+            print(player_names)
+            break
+        if a == "!rating":
+           print(score)
+        elif a not in janken_options and a != "!rating":
+            print("Invalid input")
+        elif a == janken_ai:
+            print("There is a draw (" + janken_ai +")")
+            score += 50
+        elif a == "snake" and janken_ai not in snake_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "scissors" and janken_ai not in scissors_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "fire" and janken_ai not in fire_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "rock" and janken_ai not in rock_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "gun" and janken_ai not in gun_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "lightning" and janken_ai not in lightning_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "devil" and janken_ai not in devil_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "dragon" and janken_ai not in dragon_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "water" and janken_ai not in water_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "air" and janken_ai not in air_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "paper" and janken_ai not in paper_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "sponge" and janken_ai not in sponge_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "tree" and janken_ai not in tree_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "wolf" and janken_ai not in wolf_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        elif a == "human" and janken_ai not in human_l:
+            print("Well done. Computer chose " + janken_ai + " and failed")
+            score += 100
+        else:
+            print("Sorry, but computer chose " + janken_ai)
+        #print("rating: " + str(score))
