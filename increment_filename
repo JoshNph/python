@@ -1,0 +1,2 @@
+for i in range(1,11):
+    open('file%s.txt' % i, 'w').write(str(i))
